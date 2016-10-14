@@ -22,7 +22,8 @@ class NumberTileGameViewController : UIViewController, GameModelProtocol {
   var model: GameModel?
 
   var scoreView: ScoreViewProtocol?
-
+  var bestScoreView: BestScoreViewProtocol?
+    
   // Width of the gameboard
   let boardWidth: CGFloat = 230.0
   // How much padding to place between the tiles
@@ -119,6 +120,13 @@ class NumberTileGameViewController : UIViewController, GameModelProtocol {
       font: UIFont(name: "HelveticaNeue-Bold", size: 16.0) ?? UIFont.systemFont(ofSize: 16.0),
       radius: 6)
     scoreView.score = 0
+    
+    // Create the best score view
+    let bestScoreView = BestScoreView(backgroundColor: UIColor.black,
+                              textColor: UIColor.white,
+                              font: UIFont(name: "HelveticaNeue-Bold", size: 16.0) ?? UIFont.systemFont(ofSize: 16.0),
+                              radius: 6)
+    bestScoreView.bestscore = 0
 
     // Create the gameboard
     let padding: CGFloat = dimension > 5 ? thinPadding : thickPadding
@@ -132,16 +140,21 @@ class NumberTileGameViewController : UIViewController, GameModelProtocol {
       foregroundColor: UIColor.darkGray)
 
     // Set up the frames
-    let views = [scoreView, gameboard]
+    let views = [scoreView, bestScoreView, gameboard]
 
     var f = scoreView.frame
     f.origin.x = xPositionToCenterView(scoreView)
     f.origin.y = yPositionForViewAtPosition(0, views: views)
     scoreView.frame = f
-
+    
+    f = bestScoreView.frame
+    f.origin.x = xPositionToCenterView(bestScoreView)
+    f.origin.y = yPositionForViewAtPosition(1, views: views)
+    bestScoreView.frame = f
+    
     f = gameboard.frame
     f.origin.x = xPositionToCenterView(gameboard)
-    f.origin.y = yPositionForViewAtPosition(1, views: views)
+    f.origin.y = yPositionForViewAtPosition(2, views: views)
     gameboard.frame = f
 
 
@@ -149,7 +162,9 @@ class NumberTileGameViewController : UIViewController, GameModelProtocol {
     view.addSubview(gameboard)
     board = gameboard
     view.addSubview(scoreView)
+    view.addSubview(bestScoreView)
     self.scoreView = scoreView
+    self.bestScoreView = bestScoreView
 
     assert(model != nil)
     let m = model!
