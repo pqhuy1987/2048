@@ -43,6 +43,43 @@ class ScoreView : UIView, ScoreViewProtocol {
   }
 }
 
+protocol BestScoreViewProtocol {
+    func bestScoreChanged(newScore s: Int)
+}
+
+/// A simple view that displays the player's score.
+class BestScoreView : UIView, BestScoreViewProtocol {
+    var bestscore : Int = 0 {
+        didSet {
+            label.text = "BEST: \(bestscore)"
+        }
+    }
+    
+    let defaultFrame = CGRect(x: 0, y: 0, width: 140, height: 40)
+    var label: UILabel
+    
+    init(backgroundColor bgcolor: UIColor, textColor tcolor: UIColor, font: UIFont, radius r: CGFloat) {
+        label = UILabel(frame: defaultFrame)
+        label.textAlignment = NSTextAlignment.center
+        super.init(frame: defaultFrame)
+        backgroundColor = bgcolor
+        label.textColor = tcolor
+        label.font = font
+        layer.cornerRadius = r
+        self.addSubview(label)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("NSCoding not supported")
+    }
+    
+    func bestScoreChanged(newScore s: Int)  {
+        bestscore = s
+    }
+}
+
+
+
 // A simple view that displays several buttons for controlling the app
 class ControlView {
   let defaultFrame = CGRect(x: 0, y: 0, width: 140, height: 40)

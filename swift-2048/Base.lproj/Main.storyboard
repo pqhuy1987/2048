@@ -18,8 +18,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ng3-Kq-xkw">
-                                <frame key="frameInset" minX="225" minY="225" width="150" height="150"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ng3-Kq-xkw">
                                 <state key="normal" image="startBtn">
                                     <color key="titleShadowColor" red="0.5" green="0.5" blue="0.5" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
@@ -31,7 +30,7 @@
                         <color key="backgroundColor" red="0.14560455389576424" green="0.41104679404145072" blue="0.15103785967514413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Ng3-Kq-xkw" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9LS-wc-aWw"/>
-                            <constraint firstItem="Ng3-Kq-xkw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="J3L-8R-oCZ"/>
+                            <constraint firstItem="Ng3-Kq-xkw" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="43.5" id="J3L-8R-oCZ"/>
                         </constraints>
                     </view>
                 </viewController>
