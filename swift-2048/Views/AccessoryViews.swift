@@ -44,7 +44,7 @@ class ScoreView : UIView, ScoreViewProtocol {
 }
 
 protocol BestScoreViewProtocol {
-    func BestScoreChanged(newScore s: Int)
+    func bestScoreChanged(newScore s: Int)
 }
 
 /// A simple view that displays the player's score.
@@ -73,7 +73,7 @@ class BestScoreView : UIView, BestScoreViewProtocol {
         fatalError("NSCoding not supported")
     }
     
-    func BestScoreChanged(newScore s: Int)  {
+    func bestScoreChanged(newScore s: Int)  {
         bestscore = s
     }
 }
